@@ -4,8 +4,9 @@ A basic class to store all my config variables so they can be accessed in variou
 For ease of use when using PlatformIO in your IDE, create a directory below your project called lib/ and place the repo in there.
 
 In your platformio.ini file add
-[platformio]
-lib_dir = ../lib
+
+    [platformio]
+    lib_dir = ../lib
 
 Then it's just a matter of including the file to use any of the config values set.
 
