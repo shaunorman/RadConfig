@@ -1,7 +1,7 @@
 # RadConfig
-Files to store common config properties among my Arduino projects.
+A basic class to store all my config variables so they can be accessed in various places.
 
-For ease of use when using PlatformIO as your IDE, create a directory below your project called lib/ and place the repo in there.
+For ease of use when using PlatformIO in your IDE, create a directory below your project called lib/ and place the repo in there.
 
 In your platformio.ini file add
 [platformio]
@@ -9,28 +9,9 @@ lib_dir = ../lib
 
 Then it's just a matter of including the file to use any of the config values set.
 
-#include <RadConfig.c>
+#include <RadConfig.h>
 
-To update or add your own config properties simply add them to RadConfig.c the same way as below.
+> RadConfig config = RadConfig();
+> config.wifi_password
 
-#if !defined(CONFIG_GITHUB_PASSWORD)
-    #define CONFIG_GITHUB_PASSWORD "YourPassword"
-#endif
-
-And to use in your project it's simply
-
-#include <RadConfig.c>
-Serial.println(CONFIG_GITHUB_PASSWORD);
-
-> YourPassword
-
-To override any of the config variables setup in RadConfig simply define them before including the file.
-
-#define CONFIG_GITHUB_PASSWORD "SomeOtherPassword"
-#include <RadConfig.c>
-Serial.println(CONFIG_GITHUB_PASSWORD);
-
-> SomeOtherPassword
-
-
-
+Bare with me, my C knowledge is pretty low so I wasn't quite sure how to set this up. I'm sure i'll change it over time as I learn things.
