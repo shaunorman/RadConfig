@@ -6,6 +6,12 @@
 
 class RadConfig {
     public:
+        RadConfig();
+        void log(String msg);
+        void debug(String msg);
+        void debug_on();
+        void debug_off();
+
         const char* wifi_ssid = "<WIFI SSID>";
         const char* wifi_password = "<WIFI PASSWORD>";
         const char* thingspeak_api_key = "<THINGSPEAK APIKEY>";
@@ -16,7 +22,8 @@ class RadConfig {
 
         IPAddress& gateway_ip();
         uint8_t gateway[4] = {192, 168, 1, 1};
-        int ip_start = 100;
 
         int led_pin = LED_BUILTIN;
-};
+    private:
+        bool _debug = false;
+}
