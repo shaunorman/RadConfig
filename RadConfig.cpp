@@ -2,9 +2,11 @@
 #include <ESP8266WiFi.h>
 #include <RadConfig.h>
 #include <RadDevice.h>
+#include <RadLED.h>
 
 RadConfig::RadConfig() {
     device_id = get_device_id();
+    led = RadLED();
 }
 
 IPAddress& RadConfig::gateway_ip() {

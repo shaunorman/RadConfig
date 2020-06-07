@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
+#include <RadLED.h>
 
 
 class RadConfig {
@@ -20,10 +21,19 @@ class RadConfig {
         const char* mqtt_password = "<MQTT PASSWORD>";
         int mqtt_port = 1883;
 
-        IPAddress& gateway_ip();
-        uint8_t gateway[4] = {192, 168, 1, 1};
+        int serial_speed = 115200;
 
-        int led_pin = LED_BUILTIN;
+        unsigned long heartbeat_ms = 10000;
+
+        int restart_after_failed_wifi_attempts = 100;
+
+        String device_id = "";
+
+        IPAddress& gateway_ip();
+        uint8_t gateway[4] = {192, 168, 100, 1};
+
+        RadLED led;
+
     private:
         bool _debug = false;
 }
